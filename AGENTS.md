@@ -15,6 +15,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **Read `node_modules/next/dist/docs/` before writing any Next.js code.** This is Next 16; APIs differ from training data.
 - **Never commit secrets.** They live only in `.env.local` (gitignored) and the host's env settings. The repo ships only `.env.example` with empty placeholders. Check `git status` before every commit.
 - **Type-check + lint before committing:** `npx tsc --noEmit` and `npm run lint` must pass (CI enforces this on every PR).
+- **Learning & docs content gets a `docs-reviewer` pass before commit/push** — independent check for accuracy + beginner clarity. A wrong lesson mis-teaches, so the bar is higher than for code.
 
 ## Workflow — every change traces PRD → spec → ADR → branch → PR → deploy
 1. Each feature gets a spec in `docs/specs/` (copy `_TEMPLATE.md`) with **acceptance criteria**.

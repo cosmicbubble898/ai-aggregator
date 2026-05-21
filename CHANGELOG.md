@@ -15,3 +15,4 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · Versioning: 
 - Session continuity system: `docs/session-log/` (logs + template + README) and `CLAUDE.md` updates (context imports, current phase, session start/end protocol).
 - Learning-first mission declared up front (README + AGENTS.md) + a `docs/learn/` learning-path index — the repo doubles as an open-source learning resource.
 - `docs/learn/01-foundations.md` — beginner foundations lesson (hardware/software, local vs cloud, server, frontend/backend, database vs file storage, API, hosting, git) with analogies, mapped to this project.
+- `docs-reviewer` agent + a review gate: learning/docs content gets an independent accuracy/clarity review before commit/push. Applied it to `01-foundations.md` (clearer cloud-access framing, defined "serverless," tightened the restaurant/kitchen analogy).

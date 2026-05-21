@@ -24,6 +24,7 @@ Paste this at the start of every new session:
 This project defines specialist subagents in `.claude/agents/`. They are **available helpers, not a mandate** — delegate to one when it genuinely helps (parallel work, isolated review, focused expertise); the main session may also do the work directly when staying in one context is better.
 
 - **code-reviewer** (read-only) — invoke proactively after writing/modifying code and **before any commit**.
+- **docs-reviewer** (read-only) — reviews documentation & learning content for accuracy + beginner clarity. **Run it before committing or pushing any learning content** (`docs/learn/**`, README, `ONBOARDING.md`) — a wrong lesson mis-teaches, so the bar is higher than for code.
 - **backend-agent** — server-side: API routes, server actions, Auth.js, Drizzle/Neon, R2, env & integrations.
 - **frontend-agent** — client UI: components, pages/layouts, state, forms, CSS, accessibility.
 - **devops-agent** — deploy config, CI/CD, env/secrets, platform setup (Vercel/Neon/R2).

@@ -13,15 +13,15 @@ Software always needs *some* hardware to run on. The only real question is *whos
 ## 2. Your laptop vs. "the cloud"
 When you run a program on your own computer, it runs on **your hardware** — only you can use it, and only while your computer is on.
 
-**"The cloud"** just means *someone else's computers, in a data center, that are always on and reachable over the internet.* That's the whole trick. "Putting it in the cloud" = running your software on an always-on computer **anyone can reach**, instead of only your laptop.
+**"The cloud"** just means *someone else's computers, in a data center, that are always on and reachable over the internet.* That's the whole trick. "Putting it in the cloud" = running your software on an always-on computer that's **reachable over the internet** — instead of only your laptop. (Who's actually *allowed* in is a separate choice: this app, for example, requires a Google login.)
 
 ## 3. What is a server?
 A **server** is one of those always-on computers, running your software, waiting to *serve* whoever visits.
-- **Analogy:** your laptop running the app is like **cooking dinner just for yourself at home**. A server is a **restaurant kitchen** — always staffed, cooking for whoever walks in.
+- **Analogy:** your laptop running the app is like **cooking dinner just for yourself at home**. A server is like a **restaurant** — always open and staffed, ready to serve whoever walks in.
 - **In this project:** our server code runs on **Vercel** (§8). When someone opens the app, Vercel's computer runs our code and sends back the page.
 
 ## 4. Frontend vs. backend
-Every web app has two halves:
+Inside that "restaurant" (§3), the work splits into two halves:
 - **Frontend** = what you see and click in the browser — buttons, text, images. The **dining room**.
 - **Backend** = the part you *don't* see, running on the server — it checks who you are, talks to databases, calls other services, and holds secrets. The **kitchen**.
 - You (the customer) only ever touch the dining room; the kitchen does the real work out of sight.
@@ -32,10 +32,10 @@ Apps need to *remember* things, and there are two kinds of memory:
 - A **database** (we use **Neon**) is a **filing cabinet** — neat, searchable records: who the users are, their settings, the text of their chats. Small, structured, fast to look up.
 - **File storage** (we use **Cloudflare R2**) is a **warehouse** — for big items: the actual image and video *files*. You don't cram a video into a filing cabinet; you put it in the warehouse and keep a *slip of paper* (its location) in the cabinet.
 
-So: Neon holds the slips and the small stuff; R2 holds the big files.
+So: Neon holds the records *and* the slips that point at each file; R2 holds the big files themselves.
 
 ## 6. What is an API?
-An **API** is just a **menu** one program offers to another: "here's what you can ask me to do, and how to ask."
+An **API** is just a **menu** one program offers to another: "here's what you can ask me to do, how to ask — and I'll hand the result back in a predictable format."
 - When our backend wants an image, it doesn't build an AI model — it **orders off the provider's menu** (their API): "make an image of X," and gets the result back.
 - That's the heart of an **aggregator**: one app that orders from *many* providers' menus and brings the results together.
 
@@ -50,7 +50,7 @@ None of it is magic — it's specialized boxes connected by the internet.
 
 ## 8. Hosting — getting your app onto a server
 **Hosting** = a company runs your app on their servers and keeps it reachable at a web address (often free to start).
-- We use **Vercel**: you give it your code, it runs it and gives you a public URL. No physical machine to manage.
+- We use **Vercel**: you give it your code, it runs it and gives you a public URL. No physical machine to manage. *(You'll hear this called **serverless** — it doesn't mean "no server"; it means **you** don't manage one. The host starts a server to handle each request and shuts it down after.)*
 
 ## 9. git and GitHub — the save system + the shared shelf
 - **git** is a **save system with a timeline**: it records snapshots of your whole project, so you can see what changed and roll back. Like "track changes," but for an entire project, with full history.
@@ -73,4 +73,4 @@ Everything above is live in this repo:
 
 Want the deeper "how it all connects" version? Read [`../architecture.md`](../architecture.md). Want to know *why* each piece was chosen? The [`../adr/`](../adr) folder explains every decision.
 
-**Next:** the AI side — what a model is, what an *agent* is, and why an aggregator. *(coming soon)*
+**Next:** the AI side — what a model is, what an *agent* is, and why an aggregator. *(planned)*
