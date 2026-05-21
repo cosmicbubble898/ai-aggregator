@@ -13,3 +13,4 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · Versioning: 
 - Project brief (`docs/project-brief.md`) — standalone overview for brainstorming.
 - Specialist subagents in `.claude/agents/` (code-reviewer, backend, frontend, devops) as available helpers, with a soft delegation note in `CLAUDE.md`.
 - Session continuity system: `docs/session-log/` (logs + template + README) and `CLAUDE.md` updates (context imports, current phase, session start/end protocol).
+- Learning-first mission declared up front (README + AGENTS.md) + a `docs/learn/` learning-path index — the repo doubles as an open-source learning resource.

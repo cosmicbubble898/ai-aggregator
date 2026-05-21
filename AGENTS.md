@@ -9,6 +9,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **Project:** a BYOK multi-model AI aggregator (chat + image + video). This is a **greenfield rebuild** — the old app at `../chat-saas` is a **reference only**, not something we deploy. Public, open-source (MIT).
 
+**Mission (core):** this is also a **public learning resource** — people learn software engineering + AI agents by reading this repo and by building it with Claude Code. So **write code and docs to be understood by a beginner**: clear names, comments that explain the *why*, no unexplained magic. Teaching value is first-class, not an afterthought.
+
 ## Golden rules
 - **Read `node_modules/next/dist/docs/` before writing any Next.js code.** This is Next 16; APIs differ from training data.
 - **Never commit secrets.** They live only in `.env.local` (gitignored) and the host's env settings. The repo ships only `.env.example` with empty placeholders. Check `git status` before every commit.
