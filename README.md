@@ -8,7 +8,7 @@ A **bring-your-own-key (BYOK) multi-model AI web app**: chat, image generation/e
 
 **Teaching is a core goal of this project, not an afterthought.** The code *and* the docs are written to be understood by a beginner. If you want to learn how real software is built — and how AI agents actually work — using **Claude Code** in the desktop app, you can follow this repo step by step, even with zero coding background.
 
-You don't memorize commands; you learn the *why* and let Claude do the mechanics. **Start here → [`docs/learn/`](docs/learn).** *(A guided, paste-and-go companion — `ONBOARDING.md` — is coming next.)*
+You don't memorize commands; you learn the *why* and let Claude do the mechanics. **Start here → [`docs/learn/`](docs/learn)**, or jump straight into the guided, paste-and-go companion: **[`ONBOARDING.md`](ONBOARDING.md)**.
 
 ## Features (Phase 1 target)
 

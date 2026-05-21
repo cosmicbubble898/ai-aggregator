@@ -5,12 +5,12 @@ This project is a **working AI app** *and* a **learning resource**. If you want 
 **The core idea:** you don't memorize commands. You learn the *why*, and let Claude do the mechanics (git, the terminal, the boilerplate). You drive; the AI handles the plumbing.
 
 ## Fastest start
-Drop the repo's **`ONBOARDING.md`** *(coming next)* into Claude Code — or a claude.ai chat — and it becomes your step-by-step mentor.
+Drop the repo's **[`ONBOARDING.md`](../../ONBOARDING.md)** into Claude Code — or a claude.ai chat — and it becomes your step-by-step mentor.
 
 ## The learning path
 1. **[Foundations](01-foundations.md)** ✅ — the absolute basics, in plain English with analogies: what's a server, frontend vs. backend, "the cloud," databases vs. file storage, hosting, git.
 2. **The AI side** — what an AI model is, what an *agent* is, why an *aggregator*, comparing models, AI censorship & uncensored models, bring-your-own-key (BYOK). *(planned)*
-3. **Build it yourself** — a guided walkthrough from empty folder → deployed app with Claude Code. *(planned — see `ONBOARDING.md`)*
+3. **Build it yourself** — a guided walkthrough from empty folder → deployed app with Claude Code. See **[`ONBOARDING.md`](../../ONBOARDING.md)**.
 
 ## The repo *is* the lesson
 This project is fully documented, so its own files teach the real story — not toy examples:
