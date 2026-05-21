@@ -1,6 +1,6 @@
 # AI Aggregator — Claude Code guide
 
-**Current phase:** Foundation pre-flight clean. Ready for gh auth login and first commit.
+**Current phase:** Live & public on GitHub (`cosmicbubble898/ai-aggregator`), CI green. Learning layer underway — mission declared up front, `docs/learn/` foundations live, `docs-reviewer` review gate in place. **Next:** write `ONBOARDING.md` (guided-build companion — run it through `docs-reviewer` before pushing), then connect Vercel (#16).
 
 ## Context imports
 
