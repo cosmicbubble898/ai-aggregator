@@ -8,7 +8,7 @@ This project is a **working AI app** *and* a **learning resource**. If you want 
 Drop the repo's **`ONBOARDING.md`** *(coming next)* into Claude Code — or a claude.ai chat — and it becomes your step-by-step mentor.
 
 ## The learning path
-1. **Foundations** — the absolute basics, in plain English with analogies: what's a server, frontend vs. backend, "the cloud," databases vs. file storage, hosting, git. *(coming next — `01-foundations.md`)*
+1. **[Foundations](01-foundations.md)** ✅ — the absolute basics, in plain English with analogies: what's a server, frontend vs. backend, "the cloud," databases vs. file storage, hosting, git.
 2. **The AI side** — what an AI model is, what an *agent* is, why an *aggregator*, comparing models, AI censorship & uncensored models, bring-your-own-key (BYOK). *(planned)*
 3. **Build it yourself** — a guided walkthrough from empty folder → deployed app with Claude Code. *(planned — see `ONBOARDING.md`)*
 
