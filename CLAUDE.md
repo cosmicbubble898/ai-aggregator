@@ -15,9 +15,10 @@ Every session ends by updating `docs/session-log/SESSION-<date>.md`. Every sessi
 
 ### Session start protocol
 
-Paste this at the start of every new session:
+1. Open the session **in this project folder** (`ai-aggregator/`) — not the parent directory — so `CLAUDE.md` and `docs/session-log/` are unambiguous (the parent has the old `chat-saas` reference repo too).
+2. Run **`/start`** (slash command at `.claude/commands/start.md`). It runs the prompt below; you can also paste it manually:
 
-> Read CLAUDE.md, then read the most recent file in docs/session-log/. Confirm you understand: (a) the project's current phase, (b) what the last session accomplished, (c) what's next. Then ask me what we're working on today before doing anything else.
+> Read this project's CLAUDE.md, then read the most recent file in docs/session-log/ (the highest-dated SESSION-*.md). Confirm you understand: (a) the project's current phase, (b) what the last session accomplished, (c) what's next. Then ask me what we're working on today before doing anything else.
 
 ## Specialist subagents (optional delegation)
 
