@@ -29,3 +29,7 @@ npm run dev                  # http://localhost:3000
 - **Secrets** never enter the repo — only `.env.local` (gitignored) and the host's env settings.
 - **Docs are first-class:** code and docs change together.
 - See [`docs/architecture.md`](docs/architecture.md) for the system overview.
+
+## Questions?
+
+Open an issue or email **cosmicbubble898@gmail.com**.

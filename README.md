@@ -73,6 +73,10 @@ Built with a deliberately **documented, traceable workflow**: spec → branch �
 | [Contributing](CONTRIBUTING.md) | the development workflow |
 | [Agent rules](AGENTS.md) | how AI agents work in this repo |
 
+## Contact
+
+Questions, feedback, or want to get involved? Open an issue, or email **cosmicbubble898@gmail.com**.
+
 ## License
 
 [MIT](LICENSE) © 2026 Cosmic Bubble
