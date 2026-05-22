@@ -1,49 +1,213 @@
+/*
+  Design system — global styles + tokens.
+
+  "Design tokens" are named CSS variables for every design decision (colour,
+  font, spacing, corner radius). Components never hard-code a hex value or a
+  pixel size — they reference a token. Change a token here and the whole app
+  updates. This is the Claude-inspired system; full reference + the "why" lives
+  in docs/design-system.md, and the decision is recorded in ADR-0009.
+
+  Colour values are pixel-matched from the live Claude app (light + dark).
+  Light is the default; dark switches on automatically when the visitor's
+  operating system is set to dark mode (the `prefers-color-scheme` block below).
+*/
+
+/* ──────────────────────────────────────────────────────────
+   1. Tokens that DON'T change between light and dark themes:
+      fonts, the type scale, spacing, and corner radii.
+   ────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Font families. The `--font-*` variables are provided by next/font in
+     app/layout.tsx; the rest of each stack is a fallback chain if the web
+     font hasn't loaded yet. Serif = headings/branding, sans = body/UI,
+     mono = code. */
+  --font-sans: var(--font-hanken), system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "Cascadia Code",
+    "Source Code Pro", Menlo, Consolas, monospace;
+
+  /* Type scale (rem keeps it relative to the user's browser font size). */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px — default body size */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+
+  /* Line heights. */
+  --leading-tight: 1.2; /* headings */
+  --leading-normal: 1.5; /* body text */
+  --leading-relaxed: 1.65; /* long-form reading */
+
+  /* Font weights. */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing rhythm — everything is a multiple of 4px, so layouts line up. */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.5rem; /* 24px */
+  --space-6: 2rem; /* 32px */
+  --space-7: 3rem; /* 48px */
+  --space-8: 4rem; /* 64px */
+
+  /* Corner radii — soft, rounded, calm (Claude's feel). */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px; /* pills / circular */
 }
 
+/* ──────────────────────────────────────────────────────────
+   2. Colour tokens — LIGHT theme (the default).
+      Roles, not raw colours: "the app background", "body text", etc.
+   ────────────────────────────────────────────────────────── */
+:root {
+  color-scheme: light;
+
+  /* Surfaces, from the main canvas down to deeper insets, plus raised cards. */
+  --color-bg: #f8f8f6; /* app canvas (warm off-white) */
+  --color-bg-panel: #efeeeb; /* sidebars / panels (cream comes through here) */
+  --color-bg-inset: #e6e5e0; /* recessed areas / wells */
+  --color-bg-elevated: #ffffff; /* cards / popovers that sit "above" the page */
+
+  /* Text, from strongest (headings) to muted (captions/secondary). */
+  --color-text-strong: #121212; /* headings, emphasis */
+  --color-text: #373734; /* default body text */
+  --color-text-muted: #7b7974; /* secondary / hints */
+
+  /* Lines that separate things. */
+  --color-border: #e6e4dd;
+
+  /* The single brand accent — Claude's clay. Used sparingly: primary buttons,
+     focus rings, the active state. `-contrast` is the text colour to put ON
+     the accent; `-hover` is the slightly deeper shade for hover/active. */
+  --color-accent: #d97757;
+  --color-accent-hover: #c2613f;
+  --color-accent-contrast: #ffffff;
+
+  /* Errors / destructive actions. */
+  --color-danger: #cf3a3a;
+}
+
+/* ──────────────────────────────────────────────────────────
+   3. Colour tokens — DARK theme.
+      Applied automatically when the OS is in dark mode. (A manual
+      light/dark toggle is a future step; it would add `[data-theme]`
+      overrides here.)
+   ────────────────────────────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: dark;
+
+    --color-bg: #1f1f1e; /* app canvas (warm charcoal) */
+    --color-bg-panel: #171716; /* sidebars / panels */
+    --color-bg-inset: #121212; /* recessed areas */
+    --color-bg-elevated: #2c2c2a; /* raised cards / hover surfaces */
+
+    --color-text-strong: #f8f8f6; /* headings, emphasis */
+    --color-text: #c3c2b7; /* default body text */
+    --color-text-muted: #97958c; /* secondary / hints */
+
+    --color-border: #33322f;
+
+    --color-accent: #d97757; /* same clay reads well on dark */
+    --color-accent-hover: #e08a6b; /* lifts on hover against the dark bg */
+    --color-accent-contrast: #ffffff;
+
+    --color-danger: #e34a4a;
   }
+}
+
+/* ──────────────────────────────────────────────────────────
+   4. Reset + base element styles, all built from the tokens above.
+   ────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   height: 100%;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
 body {
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* Headings use the serif, sit in the strongest text colour, and ride tighter. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  color: var(--color-text-strong);
+  line-height: var(--leading-tight);
+  font-weight: var(--weight-semibold);
 }
 
+h1 {
+  font-size: var(--text-4xl);
+}
+h2 {
+  font-size: var(--text-3xl);
+}
+h3 {
+  font-size: var(--text-2xl);
+}
+h4 {
+  font-size: var(--text-xl);
+}
+
+/* Links carry the brand accent. */
 a {
-  color: inherit;
+  color: var(--color-accent);
   text-decoration: none;
 }
+a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Code/monospace. */
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
+}
+
+/* Form controls inherit the page font instead of the browser default. */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* A clear, accent-coloured focus ring for keyboard users (accessibility). */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
