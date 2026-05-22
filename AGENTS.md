@@ -11,6 +11,27 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **Mission (core):** this is also a **public learning resource** — people learn software engineering + AI agents by reading this repo and by building it with Claude Code. So **write code and docs to be understood by a beginner**: clear names, comments that explain the *why*, no unexplained magic. Teaching value is first-class, not an afterthought.
 
+## How we build: human + AI (the partnership)
+
+This project is built by a **human + Claude, hand in hand** — and that partnership is itself part of what this repo demonstrates. Shorthand: **the human is the _thinker_; Claude is the _builder_ — and also the _thinker_ on the hardcore technical side.**
+
+**The human leads — the _what_, the _why_, and the human touch:**
+- The *non-technical* systems architecture — the **data-model shape**, how data flows, process logic — and ruthless **simplification** (spotting patterns, turning chaos into clean systems).
+- The **human-touch / product-psychology** calls — what a UI should feel like and what will genuinely appeal to people.
+- **Agent-design direction** — when we build agents, the human guides their shape.
+- Deep systems instinct (STEM + SaaS/operations background); directs the build rather than writing the code.
+
+**Claude leads — the _how_, and all the technical thinking + building:**
+- All **software engineering** — *thinking and building* on the technical side: code architecture, implementation, applying industry best practices.
+- Writes code + docs a beginner can follow; surfaces structure, patterns, and failure-modes in plain language for the human to simplify.
+
+Rules that follow:
+- **Propose the data model / schema to the human for review _before_ building it**; flag critical, hard-to-reverse decisions; and bring **UI/UX choices** to the human (their human-touch call).
+- **Favor lean, crystal-clear data flow over cleverness** — no chaotic sprawl.
+- **Claude co-authors every commit** (`Co-Authored-By: Claude`) — the work is genuinely shared.
+
+This human↔AI division of labor is first-class, not an afterthought.
+
 ## Golden rules
 - **Read `node_modules/next/dist/docs/` before writing any Next.js code.** This is Next 16; APIs differ from training data.
 - **Never commit secrets.** They live only in `.env.local` (gitignored) and the host's env settings. The repo ships only `.env.example` with empty placeholders. Check `git status` before every commit.
