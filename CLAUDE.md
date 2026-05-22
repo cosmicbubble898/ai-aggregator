@@ -1,6 +1,6 @@
 # AI Aggregator — Claude Code guide
 
-**Current phase:** Live & public on GitHub (`cosmicbubble898/ai-aggregator`), CI green. Learning layer underway — mission declared up front, `docs/learn/` foundations live, `docs-reviewer` review gate in place. **Next:** write `ONBOARDING.md` (guided-build companion — run it through `docs-reviewer` before pushing), then connect Vercel (#16).
+**Current phase:** Live & public on GitHub (`cosmicbubble898/ai-aggregator`), CI green. **Vercel pipeline proven** (local → staging → production), `ONBOARDING.md` + learning layer shipped, and **Google sign-in (auth, P0-1) is SHIPPED to production** — separate staging/production Neon databases per ADR-0008. **Next:** finalize the **design system** together — *Claude-inspired* (fonts, warm-neutral palette, left + right sidebars, central content bar) — then **BYOK keys (P0-2)**, which Claude opens with a data-model schema proposal for review. (Read the latest `docs/session-log/SESSION-2026-05-22.md` for full context.)
 
 ## Context imports
 
