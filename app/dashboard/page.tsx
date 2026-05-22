@@ -23,6 +23,9 @@ export default async function Dashboard() {
       <h1>Dashboard</h1>
       <p>Signed in as {session.user.name ?? session.user.email}.</p>
       <p>This is a placeholder protected page — proof that sign-in works.</p>
+      <p>
+        <a href="/settings">Manage your API keys →</a>
+      </p>
     </main>
   );
 }

@@ -23,4 +23,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     verificationTokensTable: verificationTokens,
   }),
   providers: [Google],
+  callbacks: {
+    // We use database sessions, so this callback receives the DB `user`. Copy
+    // its id onto the session so server code can scope data to the signed-in
+    // user. (The `id` field is declared in types/next-auth.d.ts.)
+    session({ session, user }) {
+      session.user.id = user.id;
+      return session;
+    },
+  },
 });
