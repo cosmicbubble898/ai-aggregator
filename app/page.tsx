@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { auth, signIn, signOut } from "@/auth";
+import { GITHUB_URL } from "@/lib/site";
+import { homeJsonLd } from "@/lib/jsonld";
 import ChatDemo from "./components/ChatDemo";
+import { JsonLd } from "./components/JsonLd";
 import styles from "./page.module.css";
 
 // An image area on the page. When `src` is set it renders the real image
@@ -49,8 +52,6 @@ function MediaSlot({
 // and lets a visitor sign in with Google (real auth). Image areas are styled
 // placeholders for now — drop real images in later.
 
-const GITHUB_URL = "https://github.com/cosmicbubble898/ai-aggregator";
-
 const features: {
   title: string;
   blurb: string;
@@ -88,6 +89,7 @@ export default async function Home() {
 
   return (
     <div className={styles.page}>
+      <JsonLd data={homeJsonLd()} />
       {/* ───────── Top nav ───────── */}
       <header className={styles.nav}>
         <span className={styles.brand}>AI Aggregator</span>

@@ -39,7 +39,8 @@ The public content (the landing page + the `/learn` lessons) is good but **nearl
 - [ ] Each lesson page emits its **own** description (from its summary) + canonical + `openGraph:{type:"article"}`.
 - [ ] `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`, the OG image, and the icon all resolve (no 404).
 - [ ] `robots` allows AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) and disallows `/dashboard`, `/api/`, `/settings`.
-- [ ] `/dashboard` is `noindex`. `/` and `/learn` prerender statically (no `auth()` at the top level).
+- [x] `/dashboard` is `noindex`; `/learn` prerenders statically.
+- [ ] **Deferred (owner decision, 2026-05-24):** making `/` prerender statically — it still calls `auth()` at the top level, so it is server-rendered (still fully crawlable; lowest-ROI SEO item). Revisit deliberately later.
 - [ ] `/llms.txt` returns a generated `text/plain` summary + lessons + key definitions.
 - [ ] JSON-LD present and valid on `/`, `/learn`, and a lesson page.
 - [ ] (Design-gated) homepage reframe, FAQ, pillar intro, concept links, answer-first lesson leads — pending owner sign-off.
