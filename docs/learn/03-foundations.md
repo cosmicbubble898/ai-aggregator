@@ -73,4 +73,4 @@ Everything above is live in this repo:
 
 Want the deeper "how it all connects" version? Read [`../architecture.md`](../architecture.md). Want to know *why* each piece was chosen? The [`../adr/`](../adr) folder explains every decision.
 
-**Next:** the AI side — what a model is, what an *agent* is, and why an aggregator. *(planned)*
+**Next:** [Building it properly](04-building-it-properly.md) — the spec-first, traceable process behind every change, and why we don't cut corners.

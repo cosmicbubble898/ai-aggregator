@@ -38,7 +38,7 @@ On **Vercel**, as **serverless functions** — you don't rent an always-on machi
 
 ## Where data is stored (two kinds, on purpose)
 
-- **Neon (Postgres)** — small, structured, searchable records: users, encrypted API keys, chats (text/JSON), and *metadata* about each image/video (a reference key, prompt, date, owner). Think **filing cabinet**.
+- **Neon (Postgres)** — small, structured, searchable records: users, encrypted API keys (AES-256-GCM at rest, master key in the environment — [ADR-0010](adr/0010-encrypt-provider-keys.md)), chats (text/JSON), and *metadata* about each image/video (a reference key, prompt, date, owner). Think **filing cabinet**.
 - **Cloudflare R2 (object storage)** — the big binary files (image/video bytes). Think **warehouse**. The database keeps a *slip* (the object key) pointing at each file in the warehouse. → [ADR-0003](adr/0003-cloudflare-r2-for-media.md), [ADR-0004](adr/0004-store-storage-keys-not-urls.md)
 
 Media is **private** — served only to its owner via an authenticated, ownership-checked path.
