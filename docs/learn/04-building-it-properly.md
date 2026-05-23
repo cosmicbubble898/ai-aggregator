@@ -62,4 +62,4 @@ That's the north star of this whole project: a documented, **AI-driven pipeline*
 
 Everything in this repo arrived through exactly this process — you can read the whole trail.
 
-**Next:** *Git & GitHub* — the "save system" and the shared shelf that make small, labeled steps and proposals actually work. *(coming)*
+**Next:** [Git & GitHub](05-git-and-github.md) — the "save system" and the shared shelf that make small, labeled steps and proposals actually work.

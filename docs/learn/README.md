@@ -15,13 +15,15 @@ The lessons follow the **real build, in order** — each in plain English with a
 - **2 · [The AI side](02-the-ai-side.md)** ✅ — what an AI model is, what an *agent* is, why an *aggregator*, comparing models, bring-your-own-key (BYOK), and AI censorship & uncensored models.
 - **3 · [Foundations](03-foundations.md)** ✅ — the concrete pieces: what's a server, frontend vs. backend, "the cloud," databases vs. file storage, an API, hosting, git.
 - **4 · [Building it properly](04-building-it-properly.md)** ✅ — the spec-first, fully-traceable process (PRD → spec → ADR → PR → deploy), Conventional Commits, and the AI-driven-pipeline north star. Why we don't cut corners.
-- **5 · Git & GitHub** — version control, commits, branches, pull requests, and building in the open. *(coming)*
+- **5 · [Git & GitHub](05-git-and-github.md)** ✅ — version control, commits, branches, pull requests, and building in the open.
 - **6 · Shipping it** — the deploy pipeline: local → staging → production, CI/CD, and environments. *(coming)*
 - **7 · Sign-in & databases** — signing in with Google, what a database really does (Drizzle + Neon), and keeping staging and production data separate. *(coming)*
 - **8 · How the app looks** — the design system: design tokens, light/dark themes, and fonts. *(coming)*
 - **9 · Keeping your keys safe** — BYOK + encryption: how a secret is stored so even a database leak can't read it. *(coming)*
 - **10 · Working across chats** — handoffs and continuity, so important context never lives only in a chat. *(coming)*
 - **11 · [Build it yourself](../../ONBOARDING.md)** ✅ — a guided walkthrough from empty folder → deployed app with Claude Code.
+
+> **Writing or improving a lesson?** Follow the **[writing style guide](WRITING-GUIDE.md)** — keep it very simple, lead with everyday analogies, and never go too technical (depth is what the AI tutor is for).
 
 ## The repo *is* the lesson
 This project is fully documented, so its own files teach the real story — not toy examples:
