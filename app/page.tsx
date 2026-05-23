@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { auth, signIn, signOut } from "@/auth";
 import ChatDemo from "./components/ChatDemo";
 import styles from "./page.module.css";
@@ -91,6 +92,7 @@ export default async function Home() {
       <header className={styles.nav}>
         <span className={styles.brand}>AI Aggregator</span>
         <nav className={styles.navLinks}>
+          <Link href="/learn">Learn</Link>
           <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
             GitHub
           </a>

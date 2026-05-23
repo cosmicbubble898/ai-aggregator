@@ -1,0 +1,180 @@
+/* In-app Learn — index list + rendered-lesson "prose", all from design tokens. */
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-6);
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: var(--space-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+.back:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.title {
+  font-size: var(--text-3xl);
+}
+
+.lead {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+/* ───────── Index list ───────── */
+.list {
+  margin-top: var(--space-6);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.card {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: inherit;
+}
+.card:hover {
+  border-color: var(--color-accent);
+  text-decoration: none;
+}
+
+.num {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--color-accent);
+  flex-shrink: 0;
+  width: 1.5em;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-text-strong);
+}
+.cardSummary {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+/* ───────── A rendered lesson ───────── */
+.lessonNav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+}
+
+/* The markdown body. react-markdown renders standard HTML tags inside
+   `.prose`; we style each one with the tokens so a lesson reads in the
+   app exactly like the rest of the design. */
+.prose {
+  color: var(--color-text);
+  line-height: var(--leading-relaxed);
+}
+.prose h1 {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-4);
+}
+.prose h2 {
+  font-size: var(--text-2xl);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+.prose h3 {
+  font-size: var(--text-xl);
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-2);
+}
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: var(--font-serif);
+  color: var(--color-text-strong);
+  line-height: var(--leading-tight);
+}
+.prose p {
+  margin: var(--space-4) 0;
+}
+.prose a {
+  color: var(--color-accent);
+}
+.prose ul,
+.prose ol {
+  margin: var(--space-4) 0;
+  padding-left: var(--space-5);
+}
+.prose li {
+  margin: var(--space-2) 0;
+}
+.prose strong {
+  color: var(--color-text-strong);
+  font-weight: var(--weight-semibold);
+}
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-bg-inset);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+}
+.prose pre {
+  background: var(--color-bg-inset);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin: var(--space-4) 0;
+}
+.prose pre code {
+  background: none;
+  padding: 0;
+}
+.prose blockquote {
+  margin: var(--space-4) 0;
+  padding: var(--space-2) var(--space-4);
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-text-muted);
+}
+.prose hr {
+  margin: var(--space-6) 0;
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-4) 0;
+  font-size: var(--text-sm);
+}
+.prose th,
+.prose td {
+  border: 1px solid var(--color-border);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+}
+.prose th {
+  background: var(--color-bg-panel);
+  color: var(--color-text-strong);
+}

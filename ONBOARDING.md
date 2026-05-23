@@ -83,9 +83,9 @@ You won't read these all up front. This guide points you to the right one at the
 Each stop below is a checkpoint, not a script. For each one: what you'll **learn**, what you'll **do**, and a prompt you can hand to Claude. Go in order.
 
 ### Step 0 — Get your bearings (in the chat tutor)
-- **Learn:** what a server, the cloud, frontend/backend, a database, file storage, and git actually are — with plain analogies.
-- **Do:** read [`docs/learn/01-foundations.md`](docs/learn/01-foundations.md). Anything fuzzy, ask the tutor to re-explain with a different analogy.
-- **Prompt:** *"I just read the Foundations page. Quiz me with three simple questions to check I understood, then explain anything I get wrong."*
+- **Learn:** the big picture first — what software and AI even are — then what a server, the cloud, frontend/backend, a database, and git actually are, all with plain analogies.
+- **Do:** work through the start of the learning track in [`docs/learn/`](docs/learn/) — Lesson 0 (the *why*), then **The big picture**, **The AI side**, and **Foundations**. Anything fuzzy, ask the tutor to re-explain with a different analogy.
+- **Prompt:** *"I just read the first few learning lessons. Quiz me with three simple questions to check I understood, then explain anything I get wrong."*
 
 ### Step 1 — Set up your builder (in Claude Code)
 - **Learn:** what the tools on your computer are for — Claude Code is your builder; "the terminal" is just the text window where commands run; git is the save system.

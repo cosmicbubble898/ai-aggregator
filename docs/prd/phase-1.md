@@ -95,4 +95,4 @@ Every user is fully isolated: own keys, own data, no visibility into anyone else
 ## 10. Phasing
 
 - **Phase 1 (this doc):** the AI aggregator with the §6 feature set — cloud-hosted, multi-tenant, self-serve.
-- **Phase 2+:** the P1/P2 items and any genuinely new capabilities.
+- **Phase 2+:** the P1/P2 items and any genuinely new capabilities — including an **in-app Learn section** that renders the repo's `docs/learn/` lessons inside the app itself (single source of truth: written once, shown on GitHub *and* in-app), styled in the design system, so the product also teaches how it was built. *(Being built — see [`docs/specs/in-app-learn.md`](../specs/in-app-learn.md) + [ADR-0011](../adr/0011-render-lessons-in-app.md).)*

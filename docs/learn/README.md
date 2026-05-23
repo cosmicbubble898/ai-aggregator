@@ -8,9 +8,22 @@ This project is a **working AI app** *and* a **learning resource**. If you want 
 Drop the repo's **[`ONBOARDING.md`](../../ONBOARDING.md)** into Claude Code — or a claude.ai chat — and it becomes your step-by-step mentor.
 
 ## The learning path
-1. **[Foundations](01-foundations.md)** ✅ — the absolute basics, in plain English with analogies: what's a server, frontend vs. backend, "the cloud," databases vs. file storage, hosting, git.
-2. **The AI side** — what an AI model is, what an *agent* is, why an *aggregator*, comparing models, AI censorship & uncensored models, bring-your-own-key (BYOK). *(planned)*
-3. **Build it yourself** — a guided walkthrough from empty folder → deployed app with Claude Code. See **[`ONBOARDING.md`](../../ONBOARDING.md)**.
+The lessons follow the **real build, in order** — each in plain English with analogies, written for zero background. We're filling them in to catch up with what's already built (✅ = written; the rest are on the way). **New here? Start at 0.**
+
+- **0 · [Zero — before Foundations](00-zero-before-foundations.md)** ✅ — the *why*: where AI is going (AGI/ASI), why learning it matters, the leverage of building software, and why everyone should build one small product themselves with Claude Code + chat. (Nearly free — you only pay for AI usage.)
+- **1 · [The big picture](01-the-big-picture.md)** ✅ — software & AI in plain terms, the way you'd name a car's core parts — what software *is*, what AI *is*, no tech jargon yet.
+- **2 · [The AI side](02-the-ai-side.md)** ✅ — what an AI model is, what an *agent* is, why an *aggregator*, comparing models, bring-your-own-key (BYOK), and AI censorship & uncensored models.
+- **3 · [Foundations](03-foundations.md)** ✅ — the concrete pieces: what's a server, frontend vs. backend, "the cloud," databases vs. file storage, an API, hosting, git.
+- **4 · [Building it properly](04-building-it-properly.md)** ✅ — the spec-first, fully-traceable process (PRD → spec → ADR → PR → deploy), Conventional Commits, and the AI-driven-pipeline north star. Why we don't cut corners.
+- **5 · [Git & GitHub](05-git-and-github.md)** ✅ — version control, commits, branches, pull requests, and building in the open.
+- **6 · Shipping it** — the deploy pipeline: local → staging → production, CI/CD, and environments. *(coming)*
+- **7 · Sign-in & databases** — signing in with Google, what a database really does (Drizzle + Neon), and keeping staging and production data separate. *(coming)*
+- **8 · How the app looks** — the design system: design tokens, light/dark themes, and fonts. *(coming)*
+- **9 · Keeping your keys safe** — BYOK + encryption: how a secret is stored so even a database leak can't read it. *(coming)*
+- **10 · Working across chats** — handoffs and continuity, so important context never lives only in a chat. *(coming)*
+- **11 · [Build it yourself](../../ONBOARDING.md)** ✅ — a guided walkthrough from empty folder → deployed app with Claude Code.
+
+> **Writing or improving a lesson?** Follow the **[writing style guide](WRITING-GUIDE.md)** — keep it very simple, lead with everyday analogies, and never go too technical (depth is what the AI tutor is for).
 
 ## The repo *is* the lesson
 This project is fully documented, so its own files teach the real story — not toy examples:
