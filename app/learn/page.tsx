@@ -1,12 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLessons } from "@/lib/lessons";
+import { learnJsonLd } from "@/lib/jsonld";
+import { JsonLd } from "../components/JsonLd";
 import styles from "./learn.module.css";
 
+// Title is just "Learn" — the root layout's template appends "— AI Aggregator".
+const LEARN_DESCRIPTION =
+  "Learn how this app is built, in plain English — the same lessons that live in the repo.";
+
 export const metadata: Metadata = {
-  title: "Learn — AI Aggregator",
-  description:
-    "Learn how this app is built, in plain English — the same lessons that live in the repo.",
+  title: "Learn",
+  description: LEARN_DESCRIPTION,
+  alternates: { canonical: "/learn" },
+  // openGraph/twitter must repeat the share image + title here: defining them on
+  // a page REPLACES (not merges with) the root layout's, so the inherited
+  // file-based image and root twitter text would otherwise vanish. See ADR-0012.
+  openGraph: {
+    type: "website",
+    title: "Learn — AI Aggregator",
+    description: LEARN_DESCRIPTION,
+    url: "/learn",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Learn — AI Aggregator",
+    description: LEARN_DESCRIPTION,
+    images: ["/opengraph-image"],
+  },
 };
 
 // The Learn index: every lesson, in order, read from docs/learn at build time.
@@ -15,6 +37,7 @@ export default async function LearnIndex() {
 
   return (
     <main className={styles.page}>
+      <JsonLd data={learnJsonLd(lessons)} />
       <Link href="/" className={styles.back}>
         ← Home
       </Link>

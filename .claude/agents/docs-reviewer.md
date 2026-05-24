@@ -15,6 +15,7 @@ Review the target file(s) for, in priority order:
 3. **Analogies** — accurate and genuinely helpful, not misleading.
 4. **Consistency** — matches the rest of the repo (terms, tech choices, ADRs/architecture); no contradictions.
 5. **Links/paths** — referenced files exist and resolve.
+6. **SEO/GEO (public pages + cited content)** — does the page have its OWN title + meta description (not an inherited generic one), a canonical, and Open Graph? Is new public content reflected in `/llms.txt` + JSON-LD, and is text meant for AI-engine citation accurate and self-contained when quoted standalone? Flag missing/duplicated metadata. (See ADR-0012.)
 
 Output a prioritized report:
 - **Critical** — inaccurate/misleading; must fix before publishing.

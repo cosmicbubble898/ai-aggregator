@@ -17,6 +17,7 @@ export type LessonMeta = {
   number: string; // the leading "00".."99"
   title: string; // from the first "# " heading
   summary: string; // the opening italic line, as plain text
+  lastModified: string; // the .md file's modified time (ISO), for the sitemap's <lastmod>
 };
 
 function parseTitle(markdown: string): string {
@@ -41,12 +42,17 @@ function parseSummary(markdown: string): string {
   return "";
 }
 
-function metaFromMarkdown(slug: string, markdown: string): LessonMeta {
+function metaFromMarkdown(
+  slug: string,
+  markdown: string,
+  lastModified: string,
+): LessonMeta {
   return {
     slug,
     number: slug.slice(0, 2),
     title: parseTitle(markdown),
     summary: parseSummary(markdown),
+    lastModified,
   };
 }
 
@@ -57,8 +63,16 @@ export async function getLessons(): Promise<LessonMeta[]> {
     .sort();
   return Promise.all(
     files.map(async (file) => {
-      const markdown = await fs.readFile(path.join(LESSONS_DIR, file), "utf8");
-      return metaFromMarkdown(file.replace(/\.md$/, ""), markdown);
+      const fullPath = path.join(LESSONS_DIR, file);
+      const [markdown, stat] = await Promise.all([
+        fs.readFile(fullPath, "utf8"),
+        fs.stat(fullPath),
+      ]);
+      return metaFromMarkdown(
+        file.replace(/\.md$/, ""),
+        markdown,
+        stat.mtime.toISOString(),
+      );
     }),
   );
 }
@@ -69,11 +83,15 @@ export async function getLesson(
 ): Promise<{ meta: LessonMeta; markdown: string } | null> {
   if (!LESSON_FILE.test(`${slug}.md`)) return null;
   try {
-    const markdown = await fs.readFile(
-      path.join(LESSONS_DIR, `${slug}.md`),
-      "utf8",
-    );
-    return { meta: metaFromMarkdown(slug, markdown), markdown };
+    const fullPath = path.join(LESSONS_DIR, `${slug}.md`);
+    const [markdown, stat] = await Promise.all([
+      fs.readFile(fullPath, "utf8"),
+      fs.stat(fullPath),
+    ]);
+    return {
+      meta: metaFromMarkdown(slug, markdown, stat.mtime.toISOString()),
+      markdown,
+    };
   } catch {
     return null;
   }

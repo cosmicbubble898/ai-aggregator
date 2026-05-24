@@ -5,6 +5,9 @@ import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getLesson, getLessons } from "@/lib/lessons";
+import { REPO_BLOB, SITE_DESCRIPTION } from "@/lib/site";
+import { lessonJsonLd } from "@/lib/jsonld";
+import { JsonLd } from "../../components/JsonLd";
 import styles from "../learn.module.css";
 
 // Only the real lessons exist as routes; any other slug 404s.
@@ -22,11 +25,34 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const lesson = await getLesson(slug);
-  return lesson ? { title: `${lesson.meta.title} — Learn` } : {};
-}
+  if (!lesson) return {};
 
-const REPO_BLOB =
-  "https://github.com/cosmicbubble898/ai-aggregator/blob/main/";
+  // Each lesson gets its OWN description (its summary), not the inherited root
+  // one — and a canonical + article type so search/AI engines index it cleanly.
+  const canonical = `/learn/${slug}`;
+  const description = lesson.meta.summary || SITE_DESCRIPTION;
+  // openGraph/twitter repeat the share image + per-lesson title/description:
+  // defining them here REPLACES (not merges with) the root layout's, so the
+  // inherited file-based image and root twitter text would otherwise be lost.
+  return {
+    title: lesson.meta.title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      title: lesson.meta.title,
+      description,
+      url: canonical,
+      images: ["/opengraph-image"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: lesson.meta.title,
+      description,
+      images: ["/opengraph-image"],
+    },
+  };
+}
 
 // Resolve a link written relative to docs/learn/ into a repo path (handles `..`).
 function resolveFromLearn(relativePath: string): string {
@@ -85,6 +111,7 @@ export default async function LessonPage({
 
   return (
     <main className={styles.page}>
+      <JsonLd data={lessonJsonLd(lesson.meta)} />
       <Link href="/learn" className={styles.back}>
         ← All lessons
       </Link>

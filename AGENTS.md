@@ -37,6 +37,7 @@ This human↔AI division of labor is first-class, not an afterthought.
 - **Never commit secrets.** They live only in `.env.local` (gitignored) and the host's env settings. The repo ships only `.env.example` with empty placeholders. Check `git status` before every commit.
 - **Type-check + lint before committing:** `npx tsc --noEmit` and `npm run lint` must pass (CI enforces this on every PR).
 - **Learning & docs content gets a `docs-reviewer` pass before commit/push** — independent check for accuracy + beginner clarity. A wrong lesson mis-teaches, so the bar is higher than for code. Learning lessons follow the style guide at `docs/learn/WRITING-GUIDE.md` (very simple, analogy-led, never too technical — depth is what the AI tutor is for).
+- **New public routes ship discoverable (SEO + GEO) by default.** Each public page sets its own title + description + canonical + Open Graph and is listed in `app/sitemap.ts`; signed-in/utility routes are `noindex` and disallowed in `app/robots.ts`. Content pages also feed `/llms.txt` and JSON-LD (`lib/jsonld.ts`). Every URL derives from `lib/site.ts` (one-line custom-domain swap). **Gotcha:** a page-level `openGraph`/`twitter` object *replaces* (not merges with) the inherited one — so re-include the share image + per-page title/description, or they silently vanish. Re-run the `searchfit-seo` auditor after shipping. See ADR-0012.
 
 ## Workflow — every change traces PRD → spec → ADR → branch → PR → deploy
 1. Each feature gets a spec in `docs/specs/` (copy `_TEMPLATE.md`) with **acceptance criteria**.
