@@ -140,7 +140,7 @@ We add each backing service exactly when the feature needs it (Neon at auth, R2 
 ## 8. Key decisions so far (with the "why")
 
 - **Host on Vercel (serverless):** Next-native, ~$0 baseline, easy CI/CD + previews. Trade-offs to design around: a 4.5 MB request-body limit and a 60s function cap.
-- **Store media on Cloudflare R2, not Vercel:** Vercel's Acceptable Use Policy prohibits the content this app can generate, and R2 has no egress fees. So generated media never lives on Vercel.
+- **Store media on Cloudflare R2, not Vercel:** R2 is the more *open* object storage that fits a BYOK app — users bring their own keys and generate what they want — and it has **no egress fees**, so it's cheaper to serve at scale. Generated media *files* live in R2; Vercel still runs the app code.
 - **Store storage *keys* in the DB, not URLs:** signed URLs expire; a key is a durable reference, presigned on demand.
 - **Upload images directly to storage (presigned PUT):** keeps large files out of function bodies (dodges the 4.5 MB limit) and out of the database.
 - **Rebuild from scratch, feature-by-feature:** clean, understood codebase + learning; old app is a reference only.
@@ -151,7 +151,7 @@ We add each backing service exactly when the feature needs it (Neon at auth, R2 
 
 ## 9. Constraints & non-goals
 
-**Constraints:** Vercel's content policy (→ media on R2); Vercel's 4.5 MB body limit and 60s function cap; BYOK provider costs are each user's own; Google OAuth currently in "Testing" mode (true open sign-up needs the consent screen published).
+**Constraints:** Vercel's 4.5 MB body limit and 60s function cap; media files live in Cloudflare R2 (the more open, no-egress-fee object storage that fits BYOK); BYOK provider costs are each user's own; Google OAuth currently in "Testing" mode (true open sign-up needs the consent screen published).
 
 **Non-goals (for now):** new features beyond the current set; commercial hardening (rate limiting, billing, quotas); secret rotation / security review; teams/sharing; a custom domain.
 

@@ -27,7 +27,7 @@ It's cloud-hosted and multi-tenant — every user gets an isolated workspace —
 2. **Self-serve:** new user → generating output using only a Google account + their own two API keys, zero developer involvement.
 3. **Durable private history** across sessions/devices, visible only to its owner.
 4. **Clean deletion:** removing an item deletes it from the database *and* from cloud file storage (no orphans).
-5. **Sustainable for experimentation:** ~$0/month baseline; generated media is stored on infrastructure that permits it.
+5. **Sustainable for experimentation:** ~$0/month baseline; generated media is stored on open, low-cost object storage (Cloudflare R2 — no egress fees).
 
 ## 4. Non-Goals (Phase 1)
 
@@ -76,7 +76,7 @@ Every user is fully isolated: own keys, own data, no visibility into anyone else
 ## 7. Non-Functional / Technical Requirements
 
 - **Privacy:** all media private; served only to its authenticated owner; logged-out/non-owner requests rejected.
-- **Content policy & storage:** generated media stored on **Cloudflare R2** (permits the content), not Vercel Blob. → [ADR-0003](../adr/0003-cloudflare-r2-for-media.md)
+- **Media storage:** generated media stored on **Cloudflare R2** — the more *open* object storage that fits a BYOK app, with **no egress fees** — not Vercel Blob. → [ADR-0003](../adr/0003-cloudflare-r2-for-media.md)
 - **Uploads:** image uploads go **directly to storage** (not through a function body), avoiding the host's 4.5 MB request-body limit. → [ADR-0005](../adr/0005-direct-to-storage-uploads.md)
 - **Stack:** Next.js 16 (App Router) on Vercel; Neon Postgres + Drizzle; Cloudflare R2; Auth.js v5 (Google). → [ADR-0007](../adr/0007-stack-next16-plain-css.md)
 
