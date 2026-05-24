@@ -25,5 +25,9 @@ Key technical approach, data model touches, external calls. Link any ADRs.
 ## Test plan
 How to verify locally and on the preview deploy.
 
+## Reviews
+- **code-reviewer:** run on the diff before commit — outcome + any fixes.
+- **docs-reviewer:** required if this touches `docs/learn/` or other docs — outcome.
+
 ## Open questions
 - …

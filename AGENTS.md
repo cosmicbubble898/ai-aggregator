@@ -48,7 +48,7 @@ This human↔AI division of labor is first-class, not an afterthought.
 6. Review the preview, then **merge to `main` → auto-deploy to production**. Update `CHANGELOG.md`.
 
 ## Where things live
-`docs/prd/` product · `docs/adr/` decisions · `docs/specs/` feature specs · `docs/architecture.md` system overview · `docs/runbook.md` setup/deploy/rollback.
+`docs/prd/` product · `docs/adr/` decisions · `docs/specs/` feature specs · `docs/architecture.md` system overview · `docs/runbook.md` setup/deploy/rollback · `docs/deferred.md` core work we've consciously parked (deferred-tasks registry).
 
 ## Commands
 `npm run dev` · `npm run build` · `npm run lint` · `npx tsc --noEmit`
