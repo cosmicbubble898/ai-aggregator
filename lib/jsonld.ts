@@ -99,6 +99,7 @@ export function lessonJsonLd(lesson: LessonMeta) {
         url,
         mainEntityOfPage: url,
         image: OG_IMAGE,
+        datePublished: lesson.lastModified,
         dateModified: lesson.lastModified,
         inLanguage: "en",
         author: orgRef,

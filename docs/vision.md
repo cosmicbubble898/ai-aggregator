@@ -20,6 +20,8 @@ A useful shorthand for the near-term shape: a strong **multi-model generation pl
 
 ## How you can use it — the ownership ladder
 
+> *Heads-up: this ladder (and the pricing/team options below) describe the **Phase 2+** multi-tenant direction. **Today (Phase 1)** the project is personal and single-tenant — hosted, one private workspace per person (see the [PRD](prd/phase-1.md)). This is where it's headed, not what ships today.*
+
 1. **Hosted** — your data lives in our storage, isolated to your account (only you can see it).
 2. **Hosted + bring your own storage** — your media files live in *your own* bucket; you own the files.
 3. **Self-host** — it's open source; run the whole thing on your own infrastructure and keys. Everything is yours.
