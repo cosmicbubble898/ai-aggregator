@@ -13,6 +13,7 @@ import {
   text,
   primaryKey,
   integer,
+  unique,
 } from "drizzle-orm/pg-core";
 import type { AdapterAccountType } from "next-auth/adapters";
 
@@ -64,4 +65,34 @@ export const verificationTokens = pgTable(
     expires: timestamp("expires", { mode: "date" }).notNull(),
   },
   (vt) => [primaryKey({ columns: [vt.identifier, vt.token] })],
+);
+
+// A user's encrypted API key for one provider (BYOK). One row per
+// (user, provider) — the unique constraint makes "add" and "replace" the same
+// upsert, and "remove" a delete. The key itself is AES-256-GCM ciphertext; we
+// also store the IV + auth tag needed to decrypt it, plus a last-4-char hint
+// for display. The plaintext key is never stored or sent to the browser.
+// See docs/specs/byok.md and ADR-0010.
+export const providerKeys = pgTable(
+  "provider_key",
+  {
+    id: text("id")
+      .primaryKey()
+      .$defaultFn(() => crypto.randomUUID()),
+    userId: text("userId")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    provider: text("provider").notNull(), // 'openrouter' | 'atlascloud'
+    ciphertext: text("ciphertext").notNull(),
+    iv: text("iv").notNull(),
+    authTag: text("authTag").notNull(),
+    keyHint: text("keyHint").notNull(), // last 4 chars, for display only
+    createdAt: timestamp("createdAt", { mode: "date" })
+      .notNull()
+      .$defaultFn(() => new Date()),
+    updatedAt: timestamp("updatedAt", { mode: "date" })
+      .notNull()
+      .$defaultFn(() => new Date()),
+  },
+  (t) => [unique().on(t.userId, t.provider)],
 );
